@@ -13,9 +13,9 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
-      - name: Install pinned build tools
-        run: brew install swiftlint xcodegen
+      - uses: actions/checkout@v5
+      - name: Install build tools
+        run: brew install ripgrep swiftlint xcodegen
       - name: Run full standalone module gate
         run: bash Scripts/module_gate.sh
       - name: Upload DocC archive

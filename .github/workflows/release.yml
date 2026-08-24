@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Validate SemVer tag
@@ -22,8 +22,8 @@ jobs:
             echo "Release tag must be x.y.z."
             exit 1
           fi
-      - name: Install pinned build tools
-        run: brew install swiftlint xcodegen
+      - name: Install build tools
+        run: brew install ripgrep swiftlint xcodegen
       - name: Repeat full standalone module gate
         run: bash Scripts/module_gate.sh
       - name: Create GitHub Release with changelog
