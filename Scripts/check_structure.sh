@@ -26,6 +26,7 @@ for relative_path in \
     "Sources/$module_name/$module_name.docc/$module_name.md" \
     "Examples/$sandbox_name/project.yml" \
     Scripts/module_gate.sh \
+    Scripts/install_build_tools.sh \
     Scripts/run_contract_probes.sh \
     Scripts/generate_public_api_report.sh \
     Documentation/PublicAPI.md \

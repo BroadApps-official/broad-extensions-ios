@@ -14,8 +14,8 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
-      - name: Install build tools
-        run: brew install ripgrep swiftlint xcodegen
+      - name: Install ripgrep
+        run: brew install ripgrep
       - name: Run full standalone module gate
         run: bash Scripts/module_gate.sh
       - name: Upload DocC archive

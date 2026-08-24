@@ -22,8 +22,8 @@ jobs:
             echo "Release tag must be x.y.z."
             exit 1
           fi
-      - name: Install build tools
-        run: brew install ripgrep swiftlint xcodegen
+      - name: Install ripgrep
+        run: brew install ripgrep
       - name: Repeat full standalone module gate
         run: bash Scripts/module_gate.sh
       - name: Create GitHub Release with changelog

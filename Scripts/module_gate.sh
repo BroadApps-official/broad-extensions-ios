@@ -6,6 +6,7 @@ module_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 module_name="$(/usr/bin/ruby -rjson -e 'puts JSON.parse(File.read(ARGV.fetch(0))).fetch("module")' "$module_root/ModuleContract.json")"
 sandbox_name="$(/usr/bin/ruby -rjson -e 'puts JSON.parse(File.read(ARGV.fetch(0))).fetch("sandbox")' "$module_root/ModuleContract.json")"
 expected_swiftlint_version="0.62.2"
+swiftlint_binary="$module_root/.build/tooling/swiftlint-$expected_swiftlint_version/swiftlint"
 derived_data="$module_root/.build/DerivedData"
 swift_module_cache="$module_root/.build/SwiftModuleCache"
 swiftpm_cache="$module_root/.build/SwiftPMCache"
@@ -36,6 +37,7 @@ bash "$module_root/Scripts/check_documentation.sh"
 
 echo "[3/9] SwiftFormat"
 bash "$module_root/Scripts/install_swiftformat.sh"
+bash "$module_root/Scripts/install_build_tools.sh"
 "$module_root/.build/tooling/swiftformat-0.62.1/swiftformat" \
     --lint \
     --config "$module_root/.swiftformat" \
@@ -44,16 +46,12 @@ bash "$module_root/Scripts/install_swiftformat.sh"
     "$module_root/Scripts/ContractProbes"
 
 echo "[4/9] SwiftLint"
-if ! command -v swiftlint >/dev/null 2>&1; then
-    echo "SwiftLint $expected_swiftlint_version is required."
-    exit 1
-fi
-actual_swiftlint_version="$(swiftlint version | tr -d '[:space:]')"
+actual_swiftlint_version="$("$swiftlint_binary" version | tr -d '[:space:]')"
 if [[ "$actual_swiftlint_version" != "$expected_swiftlint_version" ]]; then
     echo "SwiftLint version mismatch: expected $expected_swiftlint_version, got $actual_swiftlint_version."
     exit 1
 fi
-swiftlint lint --strict --config "$module_root/.swiftlint.yml"
+"$swiftlint_binary" lint --strict --config "$module_root/.swiftlint.yml"
 
 echo "[5/9] Swift Package, Debug iPhone Simulator"
 swift build \
