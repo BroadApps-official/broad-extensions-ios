@@ -1,0 +1,40 @@
+included:
+  - Sources
+  - Examples/BroadExtensionsGallery/Sources
+
+excluded:
+  - .build
+  - DerivedData
+  - Examples/BroadExtensionsGallery/BroadExtensionsGallery.xcodeproj
+
+opt_in_rules:
+  - closure_spacing
+  - contains_over_filter_is_empty
+  - empty_count
+  - first_where
+  - redundant_nil_coalescing
+  - shorthand_optional_binding
+
+line_length:
+  warning: 140
+  error: 180
+  ignores_comments: true
+  ignores_urls: true
+
+type_name:
+  min_length: 2
+
+custom_rules:
+  unscoped_public_extension:
+    name: "Unscoped public extension"
+    included: ".*\\.swift"
+    regex: "public extension (String|Array|Dictionary|UIApplication)"
+    message: "Keep shared extensions narrowly scoped and Broad-prefixed."
+    severity: error
+
+  global_swizzling:
+    name: "Global swizzling"
+    included: ".*\\.swift"
+    regex: "method_exchangeImplementations|class_replaceMethod"
+    message: "BroadExtensions must not modify global UIKit behavior."
+    severity: error

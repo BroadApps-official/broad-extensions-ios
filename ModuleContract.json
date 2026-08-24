@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "module": "BroadExtensions",
+  "product": "BroadExtensions",
+  "sandbox": "BroadExtensionsGallery",
+  "minimumIOS": "17.0",
+  "swiftTools": "6.0",
+  "allowedBroadImports": [],
+  "requiresPrivacyManifest": false,
+  "realPaymentsExecuted": false
+}
