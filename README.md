@@ -1,5 +1,20 @@
 # BroadExtensions
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="Documentation/Assets/README/hero-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="Documentation/Assets/README/hero-light.svg">
+    <img alt="BroadApps iOS Platform" src="Documentation/Assets/README/hero-light.svg" width="100%">
+  </picture>
+</p>
+
+<p align="center">
+  <img alt="iOS 17+" src="https://img.shields.io/badge/iOS-17%2B-111827?logo=apple&amp;logoColor=white">
+  <img alt="No dependencies" src="https://img.shields.io/badge/dependencies-none-7C3AED">
+  <img alt="Swift 5" src="https://img.shields.io/badge/Swift-language%20mode%205-F05138?logo=swift&amp;logoColor=white">
+  <img alt="Release 1.0.0" src="https://img.shields.io/badge/release-1.0.0-10B981">
+</p>
+
 Небольшие публичные SwiftUI/UIKit helpers без бизнес-логики и зависимостей от
 других BroadApps-модулей.
 
@@ -7,6 +22,9 @@
 [Changelog](CHANGELOG.md) ·
 [Публичный API](Documentation/PublicAPI.md) ·
 [Как предложить правку](CONTRIBUTING.md)
+
+**Быстрый маршрут:** [установка](#installation) · [примеры](#minimal-examples) ·
+[public API](#public-entry-points) · [Gallery](#gallery) · [проверка](#проверка)
 
 ## Что делает модуль
 
@@ -32,6 +50,16 @@
 
 Host app подключает этот repository только по надобности. Обязательного umbrella
 package нет.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Documentation/Assets/README/platform-module-selection-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="Documentation/Assets/README/platform-module-selection-light.svg">
+  <img alt="Host app выбирает BroadExtensions независимо от остальных модулей" src="Documentation/Assets/README/platform-module-selection-light.svg" width="100%">
+</picture>
+
+`BroadExtensions` — единственный полностью standalone product в federation.
+Его подключают только если нужны helpers; он не тянет bootstrap, Adapty,
+StoreKit, paywall или navigation flow.
 
 ## Installation
 
