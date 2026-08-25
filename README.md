@@ -19,6 +19,7 @@
 других BroadApps-модулей.
 
 [Документация BroadApps iOS](https://broadapps-ios-docs.nkhsnv.chatgpt.site) ·
+[Создание приложения](https://broadapps-ios-docs.nkhsnv.chatgpt.site/docs/app-creation) ·
 [Changelog](CHANGELOG.md) ·
 [Публичный API](Documentation/PublicAPI.md) ·
 [Как предложить правку](CONTRIBUTING.md)
