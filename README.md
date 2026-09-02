@@ -12,7 +12,7 @@
   <img alt="iOS 17+" src="https://img.shields.io/badge/iOS-17%2B-111827?logo=apple&amp;logoColor=white">
   <img alt="No dependencies" src="https://img.shields.io/badge/dependencies-none-7C3AED">
   <img alt="Swift 5" src="https://img.shields.io/badge/Swift-language%20mode%205-F05138?logo=swift&amp;logoColor=white">
-  <img alt="Release 1.0.0" src="https://img.shields.io/badge/release-1.0.0-10B981">
+  <img alt="Release 1.0.1" src="https://img.shields.io/badge/release-1.0.1-10B981">
 </p>
 
 Небольшие публичные SwiftUI/UIKit helpers без бизнес-логики и зависимостей от
@@ -76,7 +76,7 @@ https://github.com/BroadApps-official/broad-extensions-ios
 dependencies: [
     .package(
         url: "https://github.com/BroadApps-official/broad-extensions-ios",
-        from: "1.0.0"
+        from: "1.0.1"
     )
 ]
 ```
