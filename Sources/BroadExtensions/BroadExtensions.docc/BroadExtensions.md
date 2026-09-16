@@ -18,8 +18,12 @@ dependency on BroadCore, BroadMonetization, or BroadUIFlows.
 - ``BroadFontRegistrar``
 - ``BroadFontRegistrationError``
 
+### Touch arbitration
+
+- ``BroadSingleTouchGate``
+
 ## SwiftUI and UIKit extensions
 
 The module also exposes `Color.init(broadHex:)`, `UIColor.init(broadHex:)`,
-Dynamic Type font helpers, `View.broadDismissKeyboardOnTap()`, and
-`View.broadInteractiveSwipeBack()`.
+Dynamic Type font helpers, `View.broadDismissKeyboardOnTap()`,
+`View.broadInteractiveSwipeBack()`, and `View.broadClaimsTouch(_:)`.

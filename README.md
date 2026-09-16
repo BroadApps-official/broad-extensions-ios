@@ -139,6 +139,25 @@ DetailView()
 Bridge сохраняет прежний gesture delegate и восстанавливает его при закрытии
 экрана.
 
+### Одно касание за раз
+
+```swift
+@StateObject private var touchGate = BroadSingleTouchGate()
+
+SettingsRow(title: "Support") { touchGate.run { openSupport() } }
+
+ShareLink(item: appStoreURL) { SettingsRow(title: "Share App") }
+    .broadClaimsTouch(touchGate)
+```
+
+SwiftUI доставляет касание каждому контролу под пальцем, поэтому два пальца на
+двух строках открывают два экрана. Gate забирает первый ответивший контрол и
+держит его закрытым 400 мс — всё время нажатия вторым пальцем. Контрол со своей
+презентацией (`ShareLink`, переключатель, шит) action-а не имеет: он забирает
+gate модификатором `broadClaimsTouch(_:)`.
+
+Один gate — один экран. Длину окна можно задать: `BroadSingleTouchGate(window: .milliseconds(250))`.
+
 ## Public entry points
 
 - `BroadRGBAColor`;
@@ -148,7 +167,9 @@ Bridge сохраняет прежний gesture delegate и восстанав�
 - `Font.broadCustom(...)`;
 - `UIFont.broadCustom(...)`;
 - `View.broadDismissKeyboardOnTap()`;
-- `View.broadInteractiveSwipeBack()`.
+- `View.broadInteractiveSwipeBack()`;
+- `BroadSingleTouchGate`;
+- `View.broadClaimsTouch(_:)`.
 
 Полный автоматически обновляемый список: [Public API](Documentation/PublicAPI.md).
 

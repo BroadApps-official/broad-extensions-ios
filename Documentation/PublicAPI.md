@@ -7,13 +7,19 @@
 |---|---|
 | Case | `case registrationFailed(String)` |
 | Case | `case resourceNotFound(String)` |
+| Class | `@MainActor final class BroadSingleTouchGate` |
 | Enumeration | `enum BroadFontRegistrar` |
 | Enumeration | `enum BroadFontRegistrationError` |
+| Initializer | `@MainActor init(window: Duration = BroadSingleTouchGate.defaultWindow)` |
 | Initializer | `convenience init?(broadHex: String)` |
 | Initializer | `init?(broadHex: String)` |
 | Initializer | `init?(hex: String)` |
+| Instance Method | `@MainActor func broadClaimsTouch(_ gate: BroadSingleTouchGate) -> some View` |
 | Instance Method | `@MainActor func broadDismissKeyboardOnTap() -> some View` |
 | Instance Method | `@MainActor func broadInteractiveSwipeBack() -> some View` |
+| Instance Method | `@MainActor func reset()` |
+| Instance Method | `@MainActor func run(_ action: @MainActor () -> Void)` |
+| Instance Method | `@discardableResult @MainActor func claim() -> Bool` |
 | Instance Property | `let alpha: Double` |
 | Instance Property | `let blue: Double` |
 | Instance Property | `let green: Double` |
@@ -22,3 +28,4 @@
 | Type Method | `static func broadCustom(_ name: String, size: CGFloat, relativeTo textStyle: Font.TextStyle = .body) -> Font` |
 | Type Method | `static func broadCustom(_ name: String, size: CGFloat, textStyle: UIFont.TextStyle = .body) -> UIFont?` |
 | Type Method | `static func register(resourceNames: [String], withExtension resourceExtension: String, in bundle: Bundle = .main) throws` |
+| Type Property | `nonisolated static let defaultWindow: Duration` |

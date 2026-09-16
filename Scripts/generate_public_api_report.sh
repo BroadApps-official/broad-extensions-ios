@@ -10,7 +10,21 @@ if [[ "$simulator_arch" == "x86_64" && "$translation_state" == "1" ]]; then
     simulator_arch="arm64"
 fi
 
+# SwiftPM writes the built module under the legacy per-triple path; newer
+# toolchains put it in the Swift Build products directory instead. Take
+# whichever one actually holds the module.
 module_directory="$module_root/.build/${simulator_arch}-apple-ios-simulator/debug/Modules"
+if [[ ! -e "$module_directory/$module_name.swiftmodule" ]]; then
+    for candidate_directory in \
+        "$module_root/.build/out/Products/Debug-iphonesimulator" \
+        "$module_root/.build/${simulator_arch}-apple-ios-simulator/debug"
+    do
+        if [[ -e "$candidate_directory/$module_name.swiftmodule" ]]; then
+            module_directory="$candidate_directory"
+            break
+        fi
+    done
+fi
 symbol_directory="$module_root/.build/PublicAPI/SymbolGraphs"
 current_report="$module_root/.build/PublicAPI/PublicAPI.md"
 committed_report="$module_root/Documentation/PublicAPI.md"
