@@ -17,8 +17,10 @@
 | Instance Method | `@MainActor func broadClaimsTouch(_ gate: BroadSingleTouchGate) -> some View` |
 | Instance Method | `@MainActor func broadDismissKeyboardOnTap() -> some View` |
 | Instance Method | `@MainActor func broadInteractiveSwipeBack() -> some View` |
+| Instance Method | `@MainActor func endPress(cancelled: Bool)` |
 | Instance Method | `@MainActor func reset()` |
 | Instance Method | `@MainActor func run(_ action: @MainActor () -> Void)` |
+| Instance Method | `@discardableResult @MainActor func beginPress() -> Bool` |
 | Instance Method | `@discardableResult @MainActor func claim() -> Bool` |
 | Instance Property | `let alpha: Double` |
 | Instance Property | `let blue: Double` |
