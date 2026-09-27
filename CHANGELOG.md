@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Gate exports a UTF-8 locale before invoking Ruby so checks work in checkout
+  paths containing Cyrillic characters, even when the caller uses the C locale.
+- Public API checks also find modules in the newer SwiftPM/Xcode build layout,
+  matching the other modules instead of failing after a successful build.
+
 Все заметные изменения BroadExtensions фиксируются здесь. Каждый release
 объясняет, что изменилось и почему.
 
